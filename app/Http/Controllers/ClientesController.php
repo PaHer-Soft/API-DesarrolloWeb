@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UpdateClienteRequest;
 use App\Models\Clientes;
+use App\Http\Requests\CreateClienteRequest;
+use App\Http\Requests\UpdateClienteRequest;
 use Illuminate\Http\Request;
 
 class ClientesController extends Controller
@@ -14,7 +15,7 @@ class ClientesController extends Controller
     {
         //Buscar por medio del Nombre o DPI
         if($request->has('txtBuscar')){
-            $clientes = Clientes::where('nom_cliente', 'like', '%'.  $request->txtBuscar .'%' )
+            $clientes = Clientes::where('nom_cliente', 'like', '%' .  $request->txtBuscar .'%' )
                 ->orWhere('dpi_cliente', $request->txtBuscar)
                 ->get();
         }else{
@@ -24,7 +25,7 @@ class ClientesController extends Controller
     }
 
     //POST insertar datos
-    public function store(Request $request)
+    public function store(CreateClienteRequest $request)
     {
         $input = $request->all();
         Clientes::create($input);
@@ -41,18 +42,12 @@ class ClientesController extends Controller
         return $cliente;
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     //PUT actualizar Registros
-    public function update(UpdateClienteRequest $request, Clientes $cliente)
+    public function update(UpdateClienteRequest $request, Clientes $route_cliente)
     {
         $input = $request->all();
-        $cliente->update($input);
+        $route_cliente->update($input);
 
         return response()->json([
             'Respuesta' => true,
@@ -68,6 +63,10 @@ class ClientesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        /*Clientes::destroy($id);
+        return response()->json([
+            'Respuesta' => true,
+            'Mensaje' => 'Registro Actualizado Correctamente'
+        ], 200);*/
     }
 }

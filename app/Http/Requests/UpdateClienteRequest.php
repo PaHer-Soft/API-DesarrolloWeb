@@ -23,10 +23,12 @@ class UpdateClienteRequest extends FormRequest
      */
     public function rules()
     {
-        //dd($this->route('route_cliente'));
+        //dd($this->route('route_cliente')->cod_cliente);
         return [
             //Datos de validacion
-            'dpi_cliente' => 'required|unique:clientes.dpi_cliente,'
+            //'cod_cliente' => 'required|min:1|max:100',
+            //'dpi_cliente' => 'required|unique:clientes,dpi_cliente,', //.$this->route('route_cliente')->dpi_cliente,
+            //'dire_cliente' => 'required|min:1|max:200'
         ];
     }
 }

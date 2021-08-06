@@ -25,7 +25,9 @@ class CreateClienteRequest extends FormRequest
     {
         return [
             //Datos de validacion
-            'dpi_cliente' => 'required|unique:clientes.dpi_cliente'
+            //'cod_cliente' => 'required|min:1|max:100',
+            //'dpi_cliente' => 'required|unique:clientes,dpi_cliente',
+            //'dire_cliente' => 'required|min:1|max:200' ,
         ];
     }
 }

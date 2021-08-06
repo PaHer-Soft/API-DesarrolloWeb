@@ -4,13 +4,14 @@
 namespace App\Models;
 
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
-class Clientes extends Authenticatable
+class Clientes extends Model
 {
     protected $table = 'clientes';
 
     protected $fillable = [
+        'cod_cliente',
         'nom_cliente',
         'dire_cliente',
         'dpi_cliente',
