@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateClienteRequest;
 use App\Models\Clientes;
 use Illuminate\Http\Request;
 
@@ -47,9 +48,16 @@ class ClientesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    //PUT actualizar Registros
+    public function update(UpdateClienteRequest $request, Clientes $cliente)
     {
-        //
+        $input = $request->all();
+        $cliente->update($input);
+
+        return response()->json([
+            'Respuesta' => true,
+            'Mensaje' => 'Registro Actualizado Correctamente'
+        ], 200);
     }
 
     /**

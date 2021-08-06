@@ -16,7 +16,7 @@ class Clientes extends Authenticatable
         'dpi_cliente',
     ];
 
-    protected $primaryKey = 'id_cliente';
+    protected $primaryKey = 'cod_cliente';
 
     protected $hidden = [
         'created_at', 'updated_at'

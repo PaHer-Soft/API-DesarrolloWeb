@@ -13,7 +13,7 @@ class UpdateClienteRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,10 @@ class UpdateClienteRequest extends FormRequest
      */
     public function rules()
     {
+        //dd($this->route('route_cliente'));
         return [
-            //
+            //Datos de validacion
+            'dpi_cliente' => 'required|unique:clientes.dpi_cliente,'
         ];
     }
 }
