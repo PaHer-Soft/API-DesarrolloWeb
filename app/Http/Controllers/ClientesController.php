@@ -63,10 +63,10 @@ class ClientesController extends Controller
      */
     public function destroy($id)
     {
-        /*Clientes::destroy($id);
+        Clientes::destroy($id);
         return response()->json([
             'Respuesta' => true,
-            'Mensaje' => 'Registro Actualizado Correctamente'
-        ], 200);*/
+            'Mensaje' => 'Registro Eliminado Correctamente'
+        ], 200);
     }
 }
